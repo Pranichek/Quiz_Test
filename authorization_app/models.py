@@ -12,7 +12,7 @@ class User(DATABASE.Model, flask_login.UserMixin):
     username = DATABASE.Column(DATABASE.String(80), unique = True, nullable = False)
     email = DATABASE.Column(DATABASE.String(120), unique = True, nullable = False)
     password = DATABASE.Column(DATABASE.String(120), nullable = False)
-    is_mentor = DATABASE.Column(DATABASE.Boolean)
+    # is_mentor = DATABASE.Column(DATABASE.Boolean)
 
     #DATABASE.String(80) - 
     #nullable = False - 
