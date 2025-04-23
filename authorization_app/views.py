@@ -1,8 +1,7 @@
 import flask
 from .models import User
-from Project.settings import DATABASE
-
-#
+from Project.db import DATABASE
+from flask_login import current_user, login_user
 
 def render_authorization():
     #
@@ -30,7 +29,9 @@ def render_authorization():
 
 #
 def render_login():
-    #
+    if isinstance(current_user, User):
+        return flask.redirect("/")
+                  
     if flask.request.method == "POST":
         try:
             # отримуємо всіх користувачів з бази даних
@@ -39,7 +40,7 @@ def render_login():
             for user in users:
                 #
                 if user.username == flask.request.form["username"] and user.password == flask.request.form["password"]:
-                    #
+                    login_user(user)
                     return flask.redirect("/")
         except Exception as error:
             print(f"Error: {error}")
