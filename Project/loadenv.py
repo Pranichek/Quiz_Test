@@ -9,10 +9,10 @@ def execute():
         if exists(path = ENV_PATH):
             dotenv.load_dotenv(dotenv_path= ENV_PATH)
 
-        if not exists(MIGRATIONS_PATH):
-            os.system(os.environ["DB_INIT"])
+            if not exists(MIGRATIONS_PATH):
+                os.system(os.environ["DB_INIT"])
 
-        os.system(os.environ["DB_MIGRATE"])
-        os.system(os.environ["DB_UPGRADE"])
+            os.system(os.environ["DB_MIGRATE"])
+            os.system(os.environ["DB_UPGRADE"])
     except Exception as error:
         print(error)

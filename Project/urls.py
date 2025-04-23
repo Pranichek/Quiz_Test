@@ -19,7 +19,3 @@ authorization_app.authorization.add_url_rule(
     methods= ["GET", "POST"] 
 )
 
-
-project.register_blueprint(blueprint = home_app.home)
-project.register_blueprint(blueprint = authorization_app.login)
-project.register_blueprint(blueprint = authorization_app.authorization)
